@@ -94,6 +94,9 @@ public class GPWUtils {
             if (internetData != null) {
                 internetData = internetData.replace("&nbsp;", "");
             }
+        } catch (NullPointerException ex) {
+            Logger.getLogger(GPWUtils.class.getName()).log(Level.SEVERE, null, ex);
+            throw new GPWSourceException("Source is null", ex);          
         } catch (ParserConfigurationException ex) {
             Logger.getLogger(GPWUtils.class.getName()).log(Level.SEVERE, null, ex);
             throw new GPWSourceException("Parse Exception", ex);

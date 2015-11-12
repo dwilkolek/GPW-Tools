@@ -33,6 +33,13 @@ public class GPWUtilsTest {
     public void tearDown() {
     }
 
+    @Test(expected = GPWSourceException.class)
+    public void dataNotDownloaded() throws GPWSourceException {
+        GPWUtils util = GPWUtils.getInstance();
+        util.setStringSource(null);
+        util.getData();
+    }
+    
     @Test
     public void mainTest() throws GPWSourceException {
         GPWUtils util = GPWUtils.getInstance();
@@ -44,11 +51,7 @@ public class GPWUtilsTest {
         System.out.println("Records count: " + records.size());
     }
 
-    @Test(expected = GPWSourceException.class)
-    public void dataNotDownloaded() throws GPWSourceException {
-        GPWUtils util = GPWUtils.getInstance();
-        util.getData();
-    }
+    
 
     @Test
     public void contentTest() throws GPWSourceException {
