@@ -278,4 +278,9 @@ public class GPWRecord {
     
     
     
+    @Override
+    public String toString() {
+        return this.valor + " [" + this.shortcut + "]";
+    }
+    
 }
